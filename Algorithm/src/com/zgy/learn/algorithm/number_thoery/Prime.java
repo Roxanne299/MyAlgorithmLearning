@@ -43,7 +43,7 @@ public class Prime {
         for(int i = 2;i <= n;i++)
         {
             if(stu[i]) prime[cnt++] = i;
-            for(int j = 0;prime[j] < n / i;j++)
+            for(int j = 0;prime[j] <= n / i;j++)
             {
                 stu[prime[j]*i] = false;
                 if(i % prime[j]==0) break;
