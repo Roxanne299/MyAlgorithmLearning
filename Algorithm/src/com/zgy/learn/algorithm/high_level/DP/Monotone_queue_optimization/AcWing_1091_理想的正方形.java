@@ -1,10 +1,9 @@
-package com.zgy;
-
-
+package com.zgy.learn.algorithm.high_level.DP.Monotone_queue_optimization;
 import java.io.*;
 import java.util.*;
-//需要注意的是滑动窗口中存的队列是数组的下标 而不是值并且判断是不是超过注定窗口长度不是q[tt] - q[hh] 是j - q[hh]
-class Main{
+
+//类似理想的正方形思想
+public class AcWing_1091_理想的正方形 {
     public static int N = 1010,n,m, P = 998244353;
     public static int[][] g = new int[N][N], row_max = new int[N][N],row_min = new int[N][N],res_max = new int[N][N],res_min = new int[N][N];
     public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -54,7 +53,7 @@ class Main{
             int[] q = new int[N];
             for(int j = 0;j < n;j++){
                 while(tt >= hh && j - q[hh] > a - 1) hh++;
-                while(tt >= hh && row_max[j][i] > g[q[tt]][i]) tt--;
+                while(tt >= hh && row_max[j][i] > row_max[q[tt]][i]) tt--;
                 q[++tt] = j;
                 if(j >= a - 1) res_max[j - a + 1][i] = row_max[q[hh]][i];
             }
@@ -70,17 +69,11 @@ class Main{
             int[] q = new int[N];
             for(int j = 0;j < n;j++){
                 while(tt >= hh && j - q[hh] > a - 1) hh++;
-                while(tt >= hh && row_min[j][i] < g[q[tt]][i]) tt--;
+                while(tt >= hh && row_min[j][i] < row_min[q[tt]][i]) tt--;
                 q[++tt] = j;
                 if(j >= a - 1) res_min[j - a + 1][i] = row_min[q[hh]][i];
             }
         }
-        //  for(int i = 0;i <= n-a;i++){
-        //     for(int j = 0;j <= m - b;j++){
-        //         System.out.print(res_max[i][j]+" ");
-        //     }
-        //     System.out.println();
-        // }
 
         int res = 0;
         for(int i = 0;i <= n - a;i++)
@@ -92,4 +85,10 @@ class Main{
 
         System.out.print(res);
     }
+
 }
+
+
+
+//需要注意的是滑动窗口中存的队列是数组的下标 而不是值并且判断是不是超过注定窗口长度不是q[tt] - q[hh] 是j - q[hh]
+//还需要注意 再算竖向的滑动窗口的时候 比较的不是g数组 求最大值比较的就是row_max 求最小值就是比较row_min
