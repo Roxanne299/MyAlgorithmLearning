@@ -3,93 +3,48 @@ package com.zgy;
 
 import java.io.*;
 import java.util.*;
-//需要注意的是滑动窗口中存的队列是数组的下标 而不是值并且判断是不是超过注定窗口长度不是q[tt] - q[hh] 是j - q[hh]
+
 class Main{
-    public static int N = 1010,n,m, P = 998244353;
-    public static int[][] g = new int[N][N], row_max = new int[N][N],row_min = new int[N][N],res_max = new int[N][N],res_min = new int[N][N];
-    public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static int N = 20,n,l,r,x,res;
+    public static int[] a = new int[N],stu = new int[N],k1 = new int[N];
+    public static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args)throws Exception{
-        String[] s1 = br.readLine().split(" ");
-        int n = Integer.parseInt(s1[0]),m = Integer.parseInt(s1[1]),a = Integer.parseInt(s1[2]),b = Integer.parseInt(s1[3]);
-        for(int i = 0;i < n;i++){
-            String[] s2 = br.readLine().split(" ");
-            for(int j = 0;j < m;j++){
-                g[i][j] = Integer.parseInt(s2[j]);
+    public static void dfs(temp t,int k,int res1){
+        System.out.println(res1);
+        int max = t.max,min = t.min,cnt = t.cnt;
+        if((cnt > 1 && max - min < x) || ( cnt + n - k) < 2 || (cnt > 0 && !(res1 >= l && res1 <= r)) ) return ;
+        if(k == n){
+            res ++;
+            return;
+        }
+        for(int i = k;i < n;i++){
+            if(stu[i] == 0){
+                stu[i] = 1;
+                dfs(t,k+1,res1);
+                k1[i] = 1;
+                dfs(new temp(Math.max(a[i],max),Math.min(min,a[i]),cnt+1),k+1,res1+a[i]);
+                k1[i] = 0;
+                stu[i] = 0;
             }
         }
+    }
 
-        //首先预处理出每一行 长度为b的队列中的最大值和最小值 row_max[i][j] 表明 第i行j ~ j + b - 1 中 的最大值
-        for(int i = 0;i < n;i++){
-            //一维单调队列(第i行)
-            int tt = -1,hh = 0;
-            int[] q = new int[N];
-            for(int j = 0;j < m;j++){
-                while(tt >= hh && j - q[hh] > b - 1) hh++;
-                while(tt >= hh && g[i][q[tt]] < g[i][j]) tt--;
-                q[++tt] = j;
-                if(j >= b - 1) row_max[i][j - b + 1] = g[i][q[hh]];
-            }
-        }
-
-        //首先预处理出每一行 长度为b的队列中的最大值和最小值 row_max[i][j] 表明 第i行j ~ j + b - 1 中的最小值
-        for(int i = 0;i < n;i++){
-            //一维单调队列(第i行)
-            int tt = -1,hh = 0;
-            int[] q = new int[N];
-            for(int j = 0;j < m;j++){
-                while(tt >= hh && j - q[hh] > b - 1) hh++;
-                while(tt >= hh && g[i][q[tt]] > g[i][j]) tt--;
-                q[++tt] = j;
-                if(j >= b - 1) row_min[i][j - b + 1] = g[i][q[hh]];
-            }
-        }
-
-
-        //接着预处理第i列~第i + b-1列组合的一个n行b列的数组，竖向使用单调队列算出  第i列~第i + b-1列其中行数不超过a的最大值
-        //第一层循环是列
-        for(int i = 0;i <= m - b;i++)
-        {
-            int tt = -1,hh = 0;
-            int[] q = new int[N];
-            for(int j = 0;j < n;j++){
-                while(tt >= hh && j - q[hh] > a - 1) hh++;
-                while(tt >= hh && row_max[j][i] > g[q[tt]][i]) tt--;
-                q[++tt] = j;
-                if(j >= a - 1) res_max[j - a + 1][i] = row_max[q[hh]][i];
-            }
-        }
-
-
-
-        //接着预处理第i列~第i + b-1列组合的一个n行b列的数组，竖向使用单调队列算出  第i列~第i + b-1列其中行数不超过a的最小值
-        //第一层循环是列
-        for(int i = 0;i <= m - b;i++)
-        {
-            int tt = -1,hh = 0;
-            int[] q = new int[N];
-            for(int j = 0;j < n;j++){
-                while(tt >= hh && j - q[hh] > a - 1) hh++;
-                while(tt >= hh && row_min[j][i] < g[q[tt]][i]) tt--;
-                q[++tt] = j;
-                if(j >= a - 1) res_min[j - a + 1][i] = row_min[q[hh]][i];
-            }
-        }
-        //  for(int i = 0;i <= n-a;i++){
-        //     for(int j = 0;j <= m - b;j++){
-        //         System.out.print(res_max[i][j]+" ");
-        //     }
-        //     System.out.println();
-        // }
-
-        int res = 0;
-        for(int i = 0;i <= n - a;i++)
-        {
-            for(int j = 0;j <= m - b;j++){
-                res = (int)(((long)res_min[i][j] * res_max[i][j] + res) % P);
-            }
-        }
-
+    public static void main(String[] args){
+        n = sc.nextInt();l = sc.nextInt();r = sc.nextInt();x = sc.nextInt();
+        for(int i = 0;i < n;i++) a[i] = sc.nextInt();
+        dfs(new temp(0,(int)1e9 + 1,0),0,0);
         System.out.print(res);
     }
+
+    static class temp{
+        int max;
+        int min;
+        int cnt;
+        public temp(int max,int min,int cnt){
+            this.min = min;
+            this.max = max;
+            this.cnt = cnt;
+        }
+    }
+
 }
