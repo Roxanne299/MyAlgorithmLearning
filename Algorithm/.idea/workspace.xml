@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49529727-255f-4d0e-aceb-faf7962cffa6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/zgy/learn/algorithm/file/File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/work/com/zgy/Main$Pair.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/work/com/zgy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/work/com/zgy/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/work/com/zgy/learn/algorithm/number_thoery/Prime.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/work/com/zgy/learn/algorithm/number_thoery/Prime.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/zgy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/zgy/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/zgy/learn/algorithm/number_thoery/FastPower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/zgy/learn/algorithm/number_thoery/FastPower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/zgy/learn/algorithm/number_thoery/Prime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/zgy/learn/algorithm/number_thoery/Prime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/刷题笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/刷题笔记.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,15 +30,15 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/desktop/workspace/workspace/java/workspace/001/Algorithm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/desktop/workspace/java/workspace/001/Algorithm",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\desktop\workspace\java\workspace\001\untitled\src\com\zgy\learn\socket" />
@@ -51,7 +48,7 @@
       <recent name="com.zgy.learn.socket" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SocketExample">
+  <component name="RunManager">
     <configuration name="Expresion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zgy.learn.algorithm.data_structure.Expresion" />
       <module name="work" />
@@ -224,6 +221,7 @@
       <workItem from="1683432662901" duration="657000" />
       <workItem from="1683860324767" duration="594000" />
       <workItem from="1684134765244" duration="595000" />
+      <workItem from="1685084791943" duration="521000" />
     </task>
     <servers />
   </component>
@@ -300,8 +298,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/zgy/Main.java</url>
-          <line>14</line>
+          <line>12</line>
           <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/zgy/Main.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />

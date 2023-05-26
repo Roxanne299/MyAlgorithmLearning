@@ -5,46 +5,32 @@ import java.io.*;
 import java.util.*;
 
 class Main{
-    public static int N = 20,n,l,r,x,res;
-    public static int[] a = new int[N],stu = new int[N],k1 = new int[N];
+    public static int N = 55;
+    public static int[][][] dp = new int[2*N][N][N];
+    public static int[][] g = new int[N][N];
     public static Scanner sc = new Scanner(System.in);
 
-    public static void dfs(temp t,int k,int res1){
-        System.out.println(res1);
-        int max = t.max,min = t.min,cnt = t.cnt;
-        if((cnt > 1 && max - min < x) || ( cnt + n - k) < 2 || (cnt > 0 && !(res1 >= l && res1 <= r)) ) return ;
-        if(k == n){
-            res ++;
-            return;
-        }
-        for(int i = k;i < n;i++){
-            if(stu[i] == 0){
-                stu[i] = 1;
-                dfs(t,k+1,res1);
-                k1[i] = 1;
-                dfs(new temp(Math.max(a[i],max),Math.min(min,a[i]),cnt+1),k+1,res1+a[i]);
-                k1[i] = 0;
-                stu[i] = 0;
-            }
-        }
-    }
-
     public static void main(String[] args){
-        n = sc.nextInt();l = sc.nextInt();r = sc.nextInt();x = sc.nextInt();
-        for(int i = 0;i < n;i++) a[i] = sc.nextInt();
-        dfs(new temp(0,(int)1e9 + 1,0),0,0);
-        System.out.print(res);
-    }
+        int m = sc.nextInt(),n = sc.nextInt();
+        for(int i = 1;i <= m;i++)
+            for(int j = 1;j <= n;j++)
+                g[i][j] = sc.nextInt();
 
-    static class temp{
-        int max;
-        int min;
-        int cnt;
-        public temp(int max,int min,int cnt){
-            this.min = min;
-            this.max = max;
-            this.cnt = cnt;
-        }
-    }
+        for(int k = 2;k <= m + n;k++)
+            for(int i1 = 1;i1 <= m;i1++)
+                for(int i2 = 1;i2 <= m;i2++)
+                {
+                    int j1 = k - i1,j2 = k - i2;
+                    if(j1 >= 1 && j2 >= 1 && j1 <= n && j2 <= n){
+                        int t = g[i1][j1];
+                        if(i1 != i2) t += g[i2][j2];
+                        dp[k][i1][i2] = Math.max(dp[k-1][i1][i2] + t,dp[k][i1][i2]);
+                        dp[k][i1][i2] = Math.max(dp[k-1][i1-1][i2] + t,dp[k][i1][i2]);
+                        dp[k][i1][i2] = Math.max(dp[k-1][i1][i2-1] + t,dp[k][i1][i2]);
+                        dp[k][i1][i2] = Math.max(dp[k-1][i1-1][i2-1] + t,dp[k][i1][i2]);
+                    }
+                }
 
+        System.out.print(dp[n+m][m][n]);
+    }
 }
