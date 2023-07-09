@@ -14,7 +14,7 @@ class Main{
         int n = Integer.parseInt(br.readLine());
         a = br.readLine().toCharArray();
         b = br.readLine().toCharArray();
-        
+
 
     }
 }
