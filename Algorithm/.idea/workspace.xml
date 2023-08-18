@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="49529727-255f-4d0e-aceb-faf7962cffa6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/work/com/zgy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/work/com/zgy/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/zgy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/zgy/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/刷题笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/刷题笔记.md" afterDir="false" />
     </list>
@@ -47,7 +48,7 @@
       <recent name="com.zgy.learn.socket" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SocketExample">
+  <component name="RunManager">
     <configuration name="Expresion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zgy.learn.algorithm.data_structure.Expresion" />
       <module name="work" />
@@ -227,11 +228,26 @@
       <workItem from="1690447922823" duration="310000" />
       <workItem from="1690876978169" duration="559000" />
       <workItem from="1690964760094" duration="563000" />
+      <workItem from="1691054193709" duration="1148000" />
+      <workItem from="1691234438502" duration="1963000" />
+      <workItem from="1691732646011" duration="642000" />
+      <workItem from="1692273115610" duration="1318000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -300,6 +316,11 @@
           <url>file://$PROJECT_DIR$/src/com/zgy/learn/algorithm/dfs_and_bfs/BFS.java</url>
           <line>14</line>
           <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/zgy/Main.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
