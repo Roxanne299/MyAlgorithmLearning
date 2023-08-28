@@ -232,6 +232,11 @@
       <workItem from="1691234438502" duration="1963000" />
       <workItem from="1691732646011" duration="642000" />
       <workItem from="1692273115610" duration="1318000" />
+      <workItem from="1692349921374" duration="224000" />
+      <workItem from="1692444054269" duration="2630000" />
+      <workItem from="1692672214991" duration="3745000" />
+      <workItem from="1692774138158" duration="2984000" />
+      <workItem from="1693190018538" duration="2141000" />
     </task>
     <servers />
   </component>
@@ -319,8 +324,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/zgy/Main.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="45" />
+          <line>44</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/zgy/Main.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
@@ -337,6 +347,7 @@
       <configuration name="Application">
         <watch expression="dp[i]" language="JAVA" />
         <watch expression="(i-1)*m+k" language="JAVA" />
+        <watch expression="max" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

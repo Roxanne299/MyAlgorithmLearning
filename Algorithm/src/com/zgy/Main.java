@@ -1,62 +1,46 @@
 package com.zgy;
 
-import java.io.*;
 import java.util.*;
-// n 为奇数的时候需要找到第一个以及最后一个的数字才可以递推出来
-// n 为偶数的时候需要找到第二个以及倒数第二个才可以退出来
-// 第一个数字总是只会出现一次的 想要分辨第一个和倒数第一个才是重点
 class Main{
-    public static int N = 1000010;
-    public static int[] l_r = new int[N],r_l = new int[N],a = new int[200010],index = new int[100003],value = new int[100003];
-    public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    public static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    public static int N = 1000010,P= 1000003;
+    public static int[] fact = new int[N],infact = new int[N],q = new int[N];
+    public static Scanner sc = new Scanner(System.in);
 
-    //
-    public static int find(int l){
-        int x = l % 100003;
-        for(;index[x] != -2 && value[x] != l;) x++;
-        value[x] = l;
-        return x;
+    public static int qmi(int a,int b){
+        int res = 1;
+        while(b > 0){
+            if((b & 1) == 1) res = (int)((long)res * a) % P;
+            a = (int)((long)a * a) % P;
+            b >>= 1;
+        }
+        return res;
     }
 
-    public static void main(String[] args)throws Exception{
-        Arrays.fill(l_r,-1);
-        Arrays.fill(r_l,-1);
-        Arrays.fill(value,-1);
-        Arrays.fill(index,-2);
-        int n = Integer.parseInt(br.readLine());
-        for(int i = 1;i <=n;i++){
-            String[] s = br.readLine().split(" ");
-            int l = Integer.parseInt(s[0]),r = Integer.parseInt(s[1]);
-            index[find(l)]++;
-            index[find(r)]--;
-            if(l == 0) a[2] = r;
-            if(r == 0) a[n - 1] = l;
-            l_r[l] = r;
-            r_l[r] = l;
+    public static void main(String[] args){
+        int n = sc.nextInt(), k = sc.nextInt();
+        for(int i = 1;i <= k;i++) q[i] = sc.nextInt();
+        Arrays.fill(fact,1);
+        Arrays.fill(infact,1);
+        for(int i = 1;i <= 1000000;i++){
+            fact[i] = (int)((long)fact[i-1] * i) % P;
+            infact[i] = (int)((long)infact[i-1] * qmi(i,P-2)) % P;
         }
-        for(int i = 0;i < 100003;i++) {
-            if(index[i] ==-1) a[1] = value[i];
-            if(index[i] == -3) a[n] = value[i];
+        int one = 0,yes = 0;
+        q[0] = q[1];
+        for(int i = 1;i <= k;i++){
+            if(q[i-1] == q[i]) continue;
+            else if(q[i-1] > q[i]){
+                one = 1;
+                yes = 1;
+            }else yes = 1;
         }
 
-        if(n % 2 == 0){
-            // 正向传播
-            for(int i = a[2],j = 4;l_r[i] != -1 && l_r[i] != 0;i = l_r[i],j+=2) a[j] = l_r[i];
-            // 反向传播
-            for(int i = a[n-1],j = n-3;r_l[i] != -1 && r_l[i] != 0;i = r_l[i],j-=2) a[j] = r_l[i];
-        }
-        else{
-            // 正向传播
-            for(int i = a[1],j = 3;l_r[i] != -1 && l_r[i] != 0;i = l_r[i],j+=2) a[j] = l_r[i];
-            // 反向传播
-            for(int i = a[n],j = n-2;r_l[i] != -1 && r_l[i] != 0;i = r_l[i],j-=2) a[j] = r_l[i];
-        }
+        int a = k - yes,b = q[1] - one;
+        for(int i = 1;i <= 100;i++) System.out.print(infact[i] + " ");
+        int res = (int)((((long) fact[a] * infact[b]) % P) * infact[a - b] % P);
+        System.out.print(res);
 
 
-
-
-        for(int i = 1;i <=n;i++) bw.write(a[i]+" ");
-        bw.flush();
     }
+
 }
