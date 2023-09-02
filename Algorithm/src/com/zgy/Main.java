@@ -1,46 +1,47 @@
 package com.zgy;
 
+
+import java.io.*;
 import java.util.*;
+
 class Main{
-    public static int N = 1000010,P= 1000003;
-    public static int[] fact = new int[N],infact = new int[N],q = new int[N];
-    public static Scanner sc = new Scanner(System.in);
+    public static int N = 1000010,C = 1000010;
+    public static int[] cnt = new int[2 * N],pre = new int[2 * N];
+    public static long[][] dp = new long[2 * N][10];
+    public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    public static int qmi(int a,int b){
-        int res = 1;
-        while(b > 0){
-            if((b & 1) == 1) res = (int)((long)res * a) % P;
-            a = (int)((long)a * a) % P;
-            b >>= 1;
+    public static void main(String[] args)throws Exception{
+        String[] s = br.readLine().split(" ");
+        int n = Integer.parseInt(s[0]),c = Integer.parseInt(s[1]);
+        String[] s1 = br.readLine().split(" ");
+        for(int i = 1;i <= n;i++){
+            int t = Integer.parseInt(s1[i-1]);
+            cnt[t+1]++;
+            cnt[t+c+1]++;
         }
-        return res;
-    }
+        //预处理C(a,b)
+        dp[0][0] = 1;
+        for(int i = 1;i <= n;i++){
+            for(int j = 1;j <= 3;j++){
+                dp[i][j] = dp[i-1][j] + dp[i-1][j-1];
+            }
+        }
+        //求前缀和
+        for(int i = 1;i <= 2 * c;i++){
+            pre[i] = cnt[i];
+            pre[i] += pre[i-1];
+        }
+        long res = dp[n][3];
+        for(int i = 1;i <= c;i++){
+            //以i为左端点，一个
+            res -= cnt[i] * dp[pre[i + c/2] - pre[i]][2];
+            if(cnt[i] >= 2)
+                res -= dp[cnt[i]][2] * dp[pre[i + c/2] - pre[i]][1];
+            if(cnt[i] >= 3)
+                res -= dp[cnt[i]][3];
+        }
 
-    public static void main(String[] args){
-        int n = sc.nextInt(), k = sc.nextInt();
-        for(int i = 1;i <= k;i++) q[i] = sc.nextInt();
-        Arrays.fill(fact,1);
-        Arrays.fill(infact,1);
-        for(int i = 1;i <= 1000000;i++){
-            fact[i] = (int)((long)fact[i-1] * i) % P;
-            infact[i] = (int)((long)infact[i-1] * qmi(i,P-2)) % P;
-        }
-        int one = 0,yes = 0;
-        q[0] = q[1];
-        for(int i = 1;i <= k;i++){
-            if(q[i-1] == q[i]) continue;
-            else if(q[i-1] > q[i]){
-                one = 1;
-                yes = 1;
-            }else yes = 1;
-        }
-
-        int a = k - yes,b = q[1] - one;
-        for(int i = 1;i <= 100;i++) System.out.print(infact[i] + " ");
-        int res = (int)((((long) fact[a] * infact[b]) % P) * infact[a - b] % P);
         System.out.print(res);
-
-
     }
-
 }
+
