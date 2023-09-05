@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="49529727-255f-4d0e-aceb-faf7962cffa6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/work/com/zgy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/work/com/zgy/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/zgy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/zgy/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/刷题笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/刷题笔记.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,6 +237,8 @@
       <workItem from="1693190018538" duration="2979000" />
       <workItem from="1693444389225" duration="4187000" />
       <workItem from="1693532993564" duration="1992000" />
+      <workItem from="1693838220724" duration="1852000" />
+      <workItem from="1693882490080" duration="2356000" />
     </task>
     <servers />
   </component>
@@ -326,13 +326,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/zgy/Main.java</url>
-          <line>3</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/zgy/Main.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="50" />
+          <line>23</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />

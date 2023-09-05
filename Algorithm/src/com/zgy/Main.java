@@ -5,43 +5,31 @@ import java.io.*;
 import java.util.*;
 
 class Main{
-    public static int N = 1000010,C = 1000010;
-    public static int[] cnt = new int[2 * N],pre = new int[2 * N];
-    public static long[][] dp = new long[2 * N][10];
-    public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static int N = 500010;
+    public static long res = 0;
+    public static int[] a = new int[N],temp = new int[N];
+    public static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args)throws Exception{
-        String[] s = br.readLine().split(" ");
-        int n = Integer.parseInt(s[0]),c = Integer.parseInt(s[1]);
-        String[] s1 = br.readLine().split(" ");
-        for(int i = 1;i <= n;i++){
-            int t = Integer.parseInt(s1[i-1]);
-            cnt[t+1]++;
-            cnt[t+c+1]++;
-        }
-        //预处理C(a,b)
-        dp[0][0] = 1;
-        for(int i = 1;i <= n;i++){
-            for(int j = 1;j <= 3;j++){
-                dp[i][j] = dp[i-1][j] + dp[i-1][j-1];
-            }
-        }
-        //求前缀和
-        for(int i = 1;i <= 2 * c;i++){
-            pre[i] = cnt[i];
-            pre[i] += pre[i-1];
-        }
-        long res = dp[n][3];
-        for(int i = 1;i <= c;i++){
-            //以i为左端点，一个
-            res -= cnt[i] * dp[pre[i + c/2] - pre[i]][2];
-            if(cnt[i] >= 2)
-                res -= dp[cnt[i]][2] * dp[pre[i + c/2] - pre[i]][1];
-            if(cnt[i] >= 3)
-                res -= dp[cnt[i]][3];
+
+    public static void main(String[] args){
+        String s = sc.next();
+        int mn = 0,ln = 0,sn = 0,l = 0,m = 0;
+        for(int i = 1;i <= s.length();i++){
+            char temp = s.charAt(i-1);
+            if(temp == 'L') ln++;
+            if(temp == 'S') sn++;
+            if(temp == 'M') mn++;
         }
 
-        System.out.print(res);
+        for(int i = 1;i <= s.length();i++){
+            if(i <= ln && s.charAt(i) != 'L') l ++;
+            if(i > ln && i <= ln + mn && s.charAt(i) != 'M') m++;
+        }
+        int res = 0;
+        for(int i = ln+1;i <= ln + mn;i++){
+            if(s.charAt(i) == 'L') res --;
+        }
+        System.out.print(l + res + m);
+
     }
 }
-
