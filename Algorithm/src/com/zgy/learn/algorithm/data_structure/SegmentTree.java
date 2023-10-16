@@ -1,5 +1,7 @@
 package com.zgy.learn.algorithm.data_structure;
 
+import java.util.List;
+
 //Ïß¶ÎÊ÷Ä£°å
 public class SegmentTree {
     public static int N = 200010;

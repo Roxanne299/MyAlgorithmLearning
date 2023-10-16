@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49529727-255f-4d0e-aceb-faf7962cffa6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/zgy/learn/algorithm/data_structure/SegmentTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/work/com/zgy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/work/com/zgy/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/zgy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/zgy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/zgy/learn/algorithm/data_structure/SegmentTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/zgy/learn/algorithm/data_structure/SegmentTree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +48,7 @@
       <recent name="com.zgy.learn.socket" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SocketExample">
+  <component name="RunManager">
     <configuration name="Expresion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zgy.learn.algorithm.data_structure.Expresion" />
       <module name="work" />
@@ -251,7 +251,12 @@
       <workItem from="1697020254859" duration="7133000" />
       <workItem from="1697039756375" duration="240000" />
       <workItem from="1697069794714" duration="3576000" />
-      <workItem from="1697164573114" duration="4173000" />
+      <workItem from="1697164573114" duration="5081000" />
+      <workItem from="1697182394834" duration="740000" />
+      <workItem from="1697201587067" duration="10000" />
+      <workItem from="1697201641665" duration="16000" />
+      <workItem from="1697333867598" duration="2501000" />
+      <workItem from="1697424460034" duration="331000" />
     </task>
     <servers />
   </component>
@@ -339,8 +344,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/zgy/Main.java</url>
-          <line>6</line>
-          <option name="timeStamp" value="44" />
+          <line>78</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
