@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="49529727-255f-4d0e-aceb-faf7962cffa6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/work/com/zgy/Main$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/work/com/zgy/Main$Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/work/com/zgy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/work/com/zgy/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/zgy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/zgy/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -258,6 +256,7 @@
       <workItem from="1697333867598" duration="2501000" />
       <workItem from="1697424460034" duration="8361000" />
       <workItem from="1697525939395" duration="5312000" />
+      <workItem from="1697595968019" duration="3462000" />
     </task>
     <servers />
   </component>
@@ -342,11 +341,6 @@
           <url>file://$PROJECT_DIR$/src/com/zgy/learn/algorithm/dfs_and_bfs/BFS.java</url>
           <line>14</line>
           <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/zgy/Main.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="44" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
