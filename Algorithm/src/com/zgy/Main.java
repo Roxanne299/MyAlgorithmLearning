@@ -4,100 +4,112 @@ import java.io.*;
 import java.util.*;
 
 class Main{
-    public static int N = 100010;
-    public static int[] a = new int[N];
-    public static Node[] tr = new Node[4*N];
+    public static int N = 1010;
+    public static Operation[] operations = new Operation[N*2];
+    public static Node[] tr = new Node[N*8];
     public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     public static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    public static List<Double> ys = new LinkedList<>();
+    //给ys去重 返回去重后长度
+    public static void unique(){
+        int j = 0;
+        for(int i = 0;i < ys.size();i++)
+            if(!ys.get(j).equals(ys.get(i))) ys.set(++j,ys.get(i));
+
+        for(int i = j+1;i < ys.size();i++) ys.remove(j);
+    }
 
     public static void pushup(int u){
-        tr[u].sum = tr[u<<1].sum + tr[u<<1|1].sum;
+        if(tr[u].cnt > 0) return;
+        if(tr[u].cnt == 0) tr[u].len = tr[u<<1].len + tr[u<<1|1].len;
     }
 
     public static void build(int u,int l,int r){
         tr[u] = new Node(l,r,0,0);
-        if(l == r){
-            tr[u].sum = a[l];
+        if(l == r)  return;
+        int mid = l + r >> 1;
+        build(l<<1,l,mid);
+        build(l<<1|1,mid+1,r);
+        pushup(u);
+    }
+
+    public static void modify(int u,int l,int r,int k){
+        if(tr[u].l >= l && tr[u].r <= r) {
+            tr[u].cnt += k;
+            tr[u].len = ys.get(r) - ys.get(l-1);
         }else{
-            int mid = l + r >> 1;
-            build(u<<1,l,mid);
-            build(u<<1|1,mid+1,r);
+            int mid = tr[u].l + tr[u].r >> 1;
+            if(l <= mid) modify(u<<1,l,mid,k);
+            if(r > mid) modify(u<<1|1,mid+1,r,k);
             pushup(u);
         }
     }
 
-    public static void pushdown(int u){
-        if(tr[u].add != 0){
-            tr[u<<1].sum += (long)(tr[u<<1].r - tr[u<<1].l + 1) * tr[u].add;
-            tr[u<<1].add += tr[u].add;
-            tr[u<<1|1].sum += (long)(tr[u<<1|1].r - tr[u<<1|1].l + 1) * tr[u].add;
-            tr[u<<1|1].add += tr[u].add;
-            tr[u].add = 0;
-        }
-
+    public static double query(){
+        return tr[1].len;
     }
 
-    public static void modify(int u,int l,int r,int d){
-        if(tr[u].l >= l && tr[u].r <= r){
-            tr[u].sum += d * (long)(tr[u].r - tr[u].l + 1);
-            tr[u].add += d;
-        }else{
-            //分裂的时候必须pushdown
-            pushdown(u);
-            int mid = tr[u].l + tr[u].r >> 1;
-            if(l <= mid){
-                modify(u<<1,l,r,d);
-            }
-            if(r > mid){
-                modify(u<<1|1,l,r,d);
-            }
-            pushup(u);
-        }
-    }
-
-    public static long query(int u,int l,int r){
-
-        if(tr[u].l >= l && tr[u].r <= r) return tr[u].sum;
-        else{
-            //分裂之前pushdown
-            pushdown(u);
-            int mid = tr[u].l + tr[u].r >> 1;
-            long res = 0;
-            if(l <= mid) res += query(u<<1,l,r);
-            if(r > mid) res += query(u<<1|1,l,r);
-            return res;
-        }
+    public static int find(double x){
+        return Collections.binarySearch(ys,x);
     }
     public static void main(String[] args)throws Exception{
-        String[] s1 = br.readLine().split(" ");
-        int n = Integer.parseInt(s1[0]),m = Integer.parseInt(s1[1]);
-        String[] s2 = br.readLine().split(" ");
-        for(int i = 1;i <= n;i++) a[i] = Integer.parseInt(s2[i-1]);
+        int n = Integer.parseInt(br.readLine()),o = 1;
+        for(int i = 1;i <= n;i++){
+            String[] s1 = br.readLine().split(" ");
+            double x1 = Double.parseDouble(s1[0]),y1 = Double.parseDouble(s1[1]),x2 = Double.parseDouble(s1[2]),y2 = Double.parseDouble(s1[3]);
+            operations[o++] = new Operation(x1,y1,y2,1);
+            operations[o++] = new Operation(x2,y1,y2,-1);
+            ys.add(y1);
+            ys.add(y2);
+        }
 
-        Arrays.fill(tr,1,4*n,new Node(0,0,0,0));
-        build(1,1,n);
-        for(int i = 1;i <= m;i++){
-            String[] s3 = br.readLine().split(" ");
-            if(s3[0].equals("C")){
-                int l = Integer.parseInt(s3[1]),r = Integer.parseInt(s3[2]),d = Integer.parseInt(s3[3]);
-                modify(1,l,r,d);
-            }else{
-                int l = Integer.parseInt(s3[1]),r = Integer.parseInt(s3[2]);
-                System.out.println(query(1,l,r));
+        Arrays.sort(operations,1,o,new Comparator<Operation>(){
+            @Override
+            public int compare(Operation o1, Operation o2) {
+                if(o1.x - o2.x > 0) return 1;
+                else if(o1.x - o2.x == 0) return 0;
+                else return -1;
             }
+        });
+        Collections.sort(ys);
+        unique();
+
+        //这里面减去1的原因是 我们一共有ys.size个y所以就会有ys.size-1个区间，也就是
+        build(1,1,ys.size()-1);
+
+        double res = 0;
+        for(int i = 1;i <= 2*n;i++){
+            if(i > 1) res += query() * (operations[i].x - operations[i-1].x);
+            modify(1,find(operations[i].y1),find(operations[i].y2),operations[i].k);
         }
+        System.out.println(res);
+        ys.
+        bw.flush();
     }
 
-    static class Node{
-        int l;
-        int r;
-        int sum;
-        int add;// 懒标记
-        public Node(int l,int r,int sum,int add){
-            this.l = l;
-            this.r = r;
-            this.sum = sum;
-            this.add = add;
+    static class Operation{
+        double x;
+        double y1;
+        double y2;
+        int k; //权值 x1 对应 1 x2 对应 -1
+        public Operation(double x,double y1,double y2,int k){
+            this.x = x;
+            this.y1 = y1;
+            this.y2 = y2;
+            this.k = k;
         }
-    }
+     }
+
+     static class Node{
+         int l;
+         int r;
+        int cnt;//本区间被覆盖了多少次
+         double len;//本区间不重复被覆盖的长度
+         public Node(int l,int r,int cnt,double len){
+             this.l = l;
+             this.r = r;
+             this.cnt = cnt;
+             this.len = len;
+         }
+     }
 }
