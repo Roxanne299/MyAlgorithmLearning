@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49529727-255f-4d0e-aceb-faf7962cffa6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/zgy/learn/NewThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/work/com/zgy/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/work/com/zgy/Main$Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/work/com/zgy/Main$Operation.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/work/com/zgy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/work/com/zgy/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/zgy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/zgy/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/work.iml" beforeDir="false" afterPath="$PROJECT_DIR$/work.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/刷题笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/刷题笔记.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +53,7 @@
       <recent name="com.zgy.learn.socket" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.SocketExample">
     <configuration name="Graph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zgy.learn.algorithm.graph.Graph" />
       <module name="work" />
@@ -283,7 +278,10 @@
       <workItem from="1698044282349" duration="2692000" />
       <workItem from="1698148961769" duration="2515000" />
       <workItem from="1698199993806" duration="6429000" />
-      <workItem from="1698289943029" duration="4216000" />
+      <workItem from="1698289943029" duration="8731000" />
+      <workItem from="1698486504073" duration="2486000" />
+      <workItem from="1698735484384" duration="2708000" />
+      <workItem from="1698823615173" duration="1077000" />
     </task>
     <servers />
   </component>
