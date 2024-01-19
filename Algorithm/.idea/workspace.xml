@@ -47,7 +47,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/desktop/workspace/learn/开发/马士兵/4. serverlet和jsp/tomcat和javaee/code/java_ee&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/desktop/workspace/learn/开发/马士兵/13.合家云项目/code/hejiayun_work&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   }
 }</component>
@@ -61,7 +62,7 @@
       <recent name="com.zgy.learn.socket" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SocketExample">
+  <component name="RunManager">
     <configuration name="Graph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zgy.learn.algorithm.graph.Graph" />
       <module name="work" />
@@ -317,6 +318,31 @@
       <workItem from="1701741933550" duration="9604000" />
       <workItem from="1702119597132" duration="5237000" />
       <workItem from="1702282879805" duration="1417000" />
+      <workItem from="1702350148035" duration="2654000" />
+      <workItem from="1702431457431" duration="6793000" />
+      <workItem from="1702517687409" duration="595000" />
+      <workItem from="1702646155540" duration="596000" />
+      <workItem from="1702726251706" duration="1738000" />
+      <workItem from="1703329551811" duration="2207000" />
+      <workItem from="1703486475571" duration="6395000" />
+      <workItem from="1703554024858" duration="7718000" />
+      <workItem from="1703593442226" duration="925000" />
+      <workItem from="1703646178789" duration="1435000" />
+      <workItem from="1703684074860" duration="595000" />
+      <workItem from="1703732779329" duration="2391000" />
+      <workItem from="1703935185789" duration="1539000" />
+      <workItem from="1704089370364" duration="104000" />
+      <workItem from="1704174904059" duration="1606000" />
+      <workItem from="1704268419117" duration="1516000" />
+      <workItem from="1704349762839" duration="625000" />
+      <workItem from="1704434282795" duration="5925000" />
+      <workItem from="1704541516186" duration="4269000" />
+      <workItem from="1704590589298" duration="879000" />
+      <workItem from="1705283040433" duration="7398000" />
+      <workItem from="1705321697454" duration="1035000" />
+      <workItem from="1705368914003" duration="2323000" />
+      <workItem from="1705457472946" duration="1136000" />
+      <workItem from="1705629644789" duration="2458000" />
     </task>
     <servers />
   </component>
@@ -409,8 +435,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/zgy/Main.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="75" />
+          <line>1</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/zgy/Main.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
@@ -425,7 +456,9 @@
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="dpmax" language="JAVA" />
+        <watch expression="stu" language="JAVA" />
+        <watch expression="tt" language="JAVA" />
+        <watch expression="hh" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

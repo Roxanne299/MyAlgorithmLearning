@@ -1,33 +1,49 @@
 package com.zgy;
 import java.io.*;
-import java.nio.Buffer;
 import java.util.*;
 
 class Main{
-    public static int N = (int)1e7+10;
-    public static int[] stu = new int[N],f = new int[N],a = new int[N];
+    public static int N = 10010;
+    public static int[] find = new int[N],w = new int[N],v = new int[N];
+    public static int[][] g = new int[N][3],dp = new int[N][N];
     public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void main(String[] args)throws Exception {
-        int n = Integer.parseInt(br.readLine());
-        String[] s1 = br.readLine().split(" ");
-        for(int i = 1;i <= n;i++) a[Integer.parseInt(s1[i-1])]++;
+    public static int find(int x){
+        if(find[x] != x) find[x] = find(find[x]);
+        return find[x];
+    }
 
-        for(int i = 2;i < N;i++){
-            if(stu[i] == 1) continue;
-            for(int j = i;j < N;j+=i){
-                stu[j] = 1;
-                f[i] += a[j];
+    public static void main(String[] args)throws Exception{
+        String[] s1 = br.readLine().split(" ");
+        int n = Integer.parseInt(s1[0]),m = Integer.parseInt(s1[1]),w1 = Integer.parseInt(s1[2]);
+        for(int i = 1;i <= n;i++){
+            find[i] = i;
+            String[] s2 = br.readLine().split(" ");
+            g[i][1] = Integer.parseInt(s2[0]);
+            g[i][2] = Integer.parseInt(s2[1]);
+        }
+
+        for(int i = 1;i <= m;i++){
+            String[] s2 = br.readLine().split(" ");
+            int a = Integer.parseInt(s2[0]);
+            int b = Integer.parseInt(s2[1]);
+            int pa = find(a),pb = find(b);
+            if(a != b){
+                find[pa] = pb;
+                w[pb] += w[pa];
+                v[pb] += v[pa];
             }
         }
 
-        for(int i = 1;i < N;i++) f[i] += f[i-1];
-
-        int m = Integer.parseInt(br.readLine());
-        for(int i = 1;i <= m;i++){
-            String[] s2 = br.readLine().split(" ");
-            int l = Integer.parseInt(s2[0]),r = Integer.parseInt(s2[1]);
-            System.out.println(f[r] - f[l-1]);
+        for(int i = 1;i <= n;i ++){
+            if(find[i] == i){
+                for(int j = 1;j <= w1;j++){
+                    dp[i][j] = Math.max(dp[i-1][j],dp[i-1][j - v[i]] + w[i]);
+                }
+            }
         }
+
+        System.out.print(dp[n][w1]);
+
     }
 }
